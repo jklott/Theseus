@@ -1,0 +1,28 @@
+[package]
+name = "rand"
+version = "0.1.0"
+authors = ["Jacob Lott <41162160+jklott@users.noreply.github.com>"]
+
+
+[dependencies]
+getopts = "0.2.21"
+
+[dependencies.log]
+version = "0.4.8"
+
+
+[dependencies.app_io]
+path = "../../kernel/app_io"
+
+
+[dependencies.task]
+path = "../../kernel/task"
+
+[dependencies.fs_node]
+path = "../../kernel/fs_node"
+
+[dependencies.path]
+path = "../../kernel/path"
+
+[dependencies.rtc]
+path = "../../kernel/rtc"

@@ -1704,7 +1704,7 @@ dependencies = [
  "physical_nic",
  "pic",
  "pit_clock_basic",
- "rand",
+ "rand 0.8.5",
  "spin 0.9.4",
  "sync_irq",
  "virtual_nic",
@@ -2349,7 +2349,7 @@ dependencies = [
  "heapless",
  "log",
  "nic_buffers",
- "rand",
+ "rand 0.8.5",
  "rand_chacha",
  "random",
  "smoltcp",
@@ -2872,6 +2872,19 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5fe8a65d69dd0808184ebb5f836ab526bb259db23c657efa38711b1072ee47f0"
 dependencies = [
  "proc-macro2",
+]
+
+[[package]]
+name = "rand"
+version = "0.1.0"
+dependencies = [
+ "app_io",
+ "fs_node",
+ "getopts",
+ "log",
+ "path",
+ "rtc",
+ "task",
 ]
 
 [[package]]
@@ -3870,7 +3883,7 @@ dependencies = [
  "app_io",
  "cpu",
  "log",
- "rand",
+ "rand 0.8.5",
  "random",
  "spawn",
  "sync_block",
@@ -4575,7 +4588,7 @@ dependencies = [
  "memoffset 0.6.5",
  "memory",
  "more-asserts",
- "rand",
+ "rand 0.8.5",
  "region",
  "signal_handler",
  "spin 0.9.4",
