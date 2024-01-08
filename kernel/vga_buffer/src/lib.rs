@@ -40,6 +40,7 @@ impl VgaBuffer {
         match byte {
             b'\n' => self.new_line(),
             byte => {
+                use std::print;
                 if self.column_position >= BUFFER_WIDTH {
                     self.new_line();
                 }
