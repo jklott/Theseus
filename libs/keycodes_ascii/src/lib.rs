@@ -1,4 +1,5 @@
 #![no_std]
+#![allow(uncommon_codepoints)]
 
 use bitflags::bitflags;
 use num_enum::TryFromPrimitive;
@@ -252,7 +253,8 @@ pub enum Keycode {
     Ø,
     Æ,
     Ñ,
-    µ,
+    #[allow(non_camel_case_types)]
+    µ, // Camel case for this letter would be "M"
     Ç,
 } 
 
@@ -275,6 +277,14 @@ impl Keycode {
         if modifiers.is_caps_lock() {
             if self.is_letter() {
                 return self.as_ascii_shifted();
+            } else {
+                return self.as_ascii();
+            }
+        }
+
+        if modifiers.is_alt_gr() {
+            if self.is_letter() {
+                return self.as_ascii_altr_gr();
             } else {
                 return self.as_ascii();
             }
@@ -314,7 +324,11 @@ impl Keycode {
             Keycode::V |
             Keycode::B |
             Keycode::N |
-            Keycode::M  => true,
+            Keycode::M |
+            Keycode::Ä |
+            Keycode::µ
+            
+            => true,
 
             _ => false,
         }
@@ -440,6 +454,45 @@ impl Keycode {
         }
     }
 
-    fn as_ascii_altr_gr() -> Option<char> {
+    fn as_ascii_altr_gr(&self) -> Option<char> {
+        match *self {
+            Keycode::Ä => Some('Ä'),
+            Keycode::W => Some('W'),
+            Keycode::E => Some('E'),
+            Keycode::R => Some('R'),
+            Keycode::T => Some('T'),
+            Keycode::Y => Some('Y'),
+            Keycode::U => Some('U'), 
+            Keycode::I => Some('I'), 
+            Keycode::O => Some('O'),
+            Keycode::P => Some('P'),
+            Keycode::LeftBracket => Some('{'),
+            Keycode::RightBracket => Some('}'),
+            Keycode::A => Some('A'),
+            Keycode::S => Some('S'),
+            Keycode::D => Some('D'),
+            Keycode::F => Some('F'),
+            Keycode::G => Some('G'),
+            Keycode::H => Some('H'),
+            Keycode::J => Some('J'),
+            Keycode::K => Some('K'),
+            Keycode::L => Some('L'),
+            Keycode::Semicolon => Some(':'),
+            Keycode::Quote => Some('"'), 
+            Keycode::Backtick => Some('~'),
+            Keycode::Backslash => Some('|'),
+            Keycode::Z => Some('Z'),
+            Keycode::X => Some('X'),
+            Keycode::C => Some('C'),
+            Keycode::V => Some('V'),
+            Keycode::B => Some('B'),
+            Keycode::N => Some('N'),
+            Keycode::µ => Some('µ'),
+            Keycode::Comma => Some('<'),
+            Keycode::Period => Some('>'),
+            Keycode::Slash => Some('?'),
+            
+            _ => self.as_ascii(),
+        }
     }
 }
