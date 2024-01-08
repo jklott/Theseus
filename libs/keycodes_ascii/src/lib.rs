@@ -235,6 +235,25 @@ pub enum Keycode {
     RightShiftReleased = Keycode::RightShift as u8 + KEY_RELEASED_OFFSET,
     SuperKeyLeftReleased = Keycode::SuperKeyLeft as u8 + KEY_RELEASED_OFFSET,
     SuperKeyRightReleased = Keycode::SuperKeyRight as u8 + KEY_RELEASED_OFFSET,
+    Ä,
+    Å,
+    É,
+    Ë,
+    Þ,
+    Ü,
+    Ú,
+    Í,
+    Ó,
+    Ö,
+    Á,
+    Ð,
+    Ï,
+    Œ,
+    Ø,
+    Æ,
+    Ñ,
+    µ,
+    Ç,
 } 
 
 impl Keycode {
@@ -419,5 +438,8 @@ impl Keycode {
             
             _ => self.as_ascii(),
         }
+    }
+
+    fn as_ascii_altr_gr() -> Option<char> {
     }
 }
