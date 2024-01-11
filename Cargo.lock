@@ -3159,6 +3159,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "scheduler_lottery"
+version = "0.1.0"
+dependencies = [
+ "log",
+ "spin 0.9.4",
+ "task",
+]
+
+[[package]]
 name = "scheduler_priority"
 version = "0.1.0"
 dependencies = [
